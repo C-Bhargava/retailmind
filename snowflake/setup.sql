@@ -1,0 +1,31 @@
+-- 1. Create database and schemas
+CREATE DATABASE IF NOT EXISTS RETAILMIND;
+USE DATABASE RETAILMIND;
+
+CREATE SCHEMA IF NOT EXISTS RAW;
+CREATE SCHEMA IF NOT EXISTS STAGING;
+CREATE SCHEMA IF NOT EXISTS MARTS;
+CREATE SCHEMA IF NOT EXISTS AGENTS;
+
+-- 2. Create the raw orders table
+CREATE OR REPLACE TABLE RAW.ORDERS (
+  order_id     VARCHAR,
+  customer_id  VARCHAR,
+  product_sku  VARCHAR,
+  order_date   TIMESTAMP_NTZ,
+  revenue      FLOAT,
+  region       VARCHAR,
+  status       VARCHAR,
+  _loaded_at   TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+-- 3. Create a table to log agent runs (used in Phase 3)
+CREATE OR REPLACE TABLE AGENTS.DQ_LOG (
+  run_id          NUMBER AUTOINCREMENT PRIMARY KEY,
+  run_ts          TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+  check_results   VARIANT,
+  recommendations VARIANT
+);
+
+-- 4. Verify
+SHOW SCHEMAS IN DATABASE RETAILMIND;
