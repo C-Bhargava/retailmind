@@ -1,0 +1,9 @@
+[
+    {
+      "check": "duplicate_orders",
+      "root_cause": "Kafka consumer processed messages more than once due to at-least-once delivery semantics",
+      "business_impact": "Revenue figures inflated by ~2%, daily order count overstated in dashboards",
+      "fix_sql": "DELETE FROM RETAILMIND.RAW.ORDERS WHERE order_id IN (SELECT order_id FROM RETAILMIND.RAW.ORDERS GROUP BY order_id HAVING COUNT(*) > 1) AND _loaded_at < (SELECT MAX(_loaded_at) FROM RETAILMIND.RAW.ORDERS o2 WHERE o2.order_id = ORDERS.order_id);",
+      "prevention": "Add 'unique' and 'not_null' dbt tests on order_id in sources.yml"
+    }
+  ]
