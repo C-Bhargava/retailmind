@@ -1,0 +1,33 @@
+[0m22:10:04.242372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B70D639D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B7564C210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B743D86D0>]}
+
+
+============================== 22:10:04.255422 | 40fb0be0-2f92-4d7e-a75b-bdbf7364a3f3 ==============================
+[0m22:10:04.255422 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:10:04.259959 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\chait\\.dbt', 'invocation_command': 'dbt init retailmind_dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:10:04.392147 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\chait\.dbt
+[0m22:10:04.404714 [debug] [MainThread]: Starter project path: C:\Users\chait\OneDrive\Documents\SF_agentic\venv\Lib\site-packages\dbt\include\starter_project
+[0m22:10:04.775737 [info ] [MainThread]: 
+Your new dbt project "retailmind_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:10:04.778269 [info ] [MainThread]: Setting up your profile.
+[0m22:10:21.989165 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m22:10:21.990165 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m22:10:21.991162 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m22:16:25.701824 [info ] [MainThread]: Profile retailmind_dbt written to C:\Users\chait\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:16:25.787537 [debug] [MainThread]: Command `dbt init` succeeded at 22:16:25.784217 after 381.79 seconds
+[0m22:16:25.807501 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B742E25D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B6DB7E790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029B6DB7E250>]}
+[0m22:16:25.817011 [debug] [MainThread]: Flushing usage events
+[0m22:16:26.324007 [debug] [MainThread]: An error was encountered while trying to flush usage events
