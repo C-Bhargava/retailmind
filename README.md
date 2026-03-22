@@ -19,6 +19,7 @@ and answers business questions in plain English — all backed by a dbt semantic
 Snowflake · dbt · Snowflake Cortex · Claude API (Anthropic) · Python · Streamlit
 
 ## Github structure
+```
 retailmind/
 ├── data/  # raw CSVs (seeded with Python)
 ├── snowflake/
@@ -34,6 +35,7 @@ retailmind/
 ├── app/  # Streamlit UI
 │ └── dashboard.py
 └── README.md
+```
 
 ## Architecture
 ![RetailMind Architecture](assets/retailmind_architecture_diagram.svg)
