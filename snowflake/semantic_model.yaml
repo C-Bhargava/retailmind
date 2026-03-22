@@ -1,0 +1,76 @@
+name: retail_semantic_model
+description: >
+  Retail e-commerce orders data. Use this to answer questions about
+  revenue, order volumes, regional performance, and product sales.
+
+tables:
+  - name: ORDERS_MART
+    base_table:
+      database: RETAILMIND
+      schema: MARTS
+      table: ORDERS_MART
+    description: >
+      Cleaned and curated orders table. One row per order.
+      Only contains valid orders (quality-flagged rows excluded).
+
+    dimensions:
+      - name: region
+        synonyms: [geography, area, location, territory]
+        expr: REGION
+        description: Geographic sales region. Values are EAST, WEST, CENTRAL, SOUTH.
+        data_type: VARCHAR
+
+      - name: status
+        synonyms: [order_status, fulfillment_status, state]
+        expr: STATUS
+        description: Order status. Either COMPLETED or PENDING.
+        data_type: VARCHAR
+
+      - name: product_sku
+        synonyms: [sku, product, item, product_code]
+        expr: PRODUCT_SKU
+        description: Product identifier. Format SKU-XX. Unknown means SKU was missing.
+        data_type: VARCHAR
+
+      - name: order_date
+        synonyms: [date, purchase_date, transaction_date]
+        expr: ORDER_DATE
+        description: Date the order was placed.
+        data_type: DATE
+
+      - name: order_month
+        synonyms: [month, monthly]
+        expr: ORDER_MONTH
+        description: Year-month of the order, truncated to first of month.
+        data_type: DATE
+
+      - name: day_of_week
+        synonyms: [weekday, day]
+        expr: DAY_OF_WEEK
+        description: Day of week as integer. 0=Sunday, 1=Monday ... 6=Saturday.
+        data_type: NUMBER
+
+    measures:
+      - name: total_revenue
+        synonyms: [revenue, sales, income, earnings]
+        expr: SUM(REVENUE)
+        description: Total order revenue in USD.
+        data_type: NUMBER
+
+      - name: order_count
+        synonyms: [orders, number of orders, volume, count]
+        expr: COUNT(ORDER_ID)
+        description: Number of orders.
+        data_type: NUMBER
+
+      - name: average_order_value
+        synonyms: [aov, avg order, average revenue per order]
+        expr: AVG(REVENUE)
+        description: Average revenue per order in USD.
+        data_type: NUMBER
+
+      - name: unique_customers
+        synonyms: [customers, customer count, buyers]
+        expr: COUNT(DISTINCT CUSTOMER_ID)
+        description: Number of unique customers who placed orders.
+        data_type: NUMBER
