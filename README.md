@@ -1,7 +1,7 @@
 
 # RetailMind — Agentic Data Intelligence System
 
-![Demo](assets/demo.gif)
+![RetailMind Demo](assets/demo.gif)
 
 ## What this is
 An end-to-end agentic data engineering project built on Snowflake and Claude AI.
