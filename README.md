@@ -1,6 +1,7 @@
 
 # RetailMind — Agentic Data Intelligence System
 Demo:
+
 ![RetailMind Demo](assets/RetailMind_demo.gif)
 
 ## What this is
